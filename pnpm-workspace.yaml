@@ -1,6 +1,7 @@
 packages:
   - backend
   - frontend
+  - packages/strapi-types-generate
 onlyBuiltDependencies:
   - '@strapi/strapi'
   - '@swc/core'

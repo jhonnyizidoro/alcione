@@ -1,50 +1,36 @@
-import type { Schema, Attribute } from '@strapi/strapi';
+import type { Schema, Struct } from '@strapi/strapi'
 
-export interface AboutTimelineItem extends Schema.Component {
-  collectionName: 'components_about_timeline_items';
+export interface AboutTimelineItem extends Struct.ComponentSchema {
+  collectionName: 'components_about_timeline_items'
   info: {
-    displayName: 'timelineItem';
-    description: '';
-  };
+    description: ''
+    displayName: 'Timeline Item'
+  }
   attributes: {
-    title: Attribute.String;
-    date: Attribute.Date;
-    description: Attribute.String;
-    link: Attribute.String;
-  };
+    date: Schema.Attribute.Date
+    description: Schema.Attribute.String
+    link: Schema.Attribute.String
+    title: Schema.Attribute.String
+  }
 }
 
-export interface ClassClasses extends Schema.Component {
-  collectionName: 'components_class_classes';
+export interface HomeNumbersSection extends Struct.ComponentSchema {
+  collectionName: 'components_home_numbers_sections'
   info: {
-    displayName: 'classes';
-    description: '';
-  };
+    displayName: 'Numbers Section'
+  }
   attributes: {
-    title: Attribute.String;
-    image: Attribute.Media;
-    description: Attribute.Text;
-  };
+    subtitle: Schema.Attribute.String
+    text: Schema.Attribute.Text
+    title: Schema.Attribute.String
+  }
 }
 
-export interface HomeNumbersSection extends Schema.Component {
-  collectionName: 'components_home_numbers_sections';
-  info: {
-    displayName: 'numbersSection';
-  };
-  attributes: {
-    title: Attribute.String;
-    subtitle: Attribute.String;
-    text: Attribute.Text;
-  };
-}
-
-declare module '@strapi/types' {
-  export module Shared {
-    export interface Components {
-      'about.timeline-item': AboutTimelineItem;
-      'class.classes': ClassClasses;
-      'home.numbers-section': HomeNumbersSection;
+declare module '@strapi/strapi' {
+  export module Public {
+    export interface ComponentSchemas {
+      'about.timeline-item': AboutTimelineItem
+      'home.numbers-section': HomeNumbersSection
     }
   }
 }

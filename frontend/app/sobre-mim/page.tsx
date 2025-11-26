@@ -1,3 +1,4 @@
+import { StrapiRoute } from '@/@types/Routes'
 import Link from 'next/link'
 import { FC } from 'react'
 
@@ -14,26 +15,16 @@ import LinkIcon from '@/icons/Link'
 
 import styles from './page.module.scss'
 
-type AboutData = SingleTypeRes<{
-  headerTitle: string
-  headerSubtitle: string
-  headerImage: SingleType<Collections.Image>
-  aboutText: string
-  timelineItems: Array<Components.About.TimelineItem>
-  bottomImage: SingleType<Collections.Image>
-  bottomText: string
-}>
-
 export const metadata = defaultMetadata(
-  'Helder Lazarotto | Sobre mim',
-  'Helder Lazarotto: Confira minha trajetória, meus últimos projetos e muito mais!',
+  'Professor Alcione | Sobre mim',
+  'Professor Alcione: Confira minha trajetória, meus últimos projetos e muito mais!',
 )
 
 const getData = async () => {
-  const res = await get<AboutData>('about?populate=deep,2')
+  const res = await get<Api.About>(StrapiRoute.About)
 
   return {
-    data: res.data.attributes,
+    data: res,
   }
 }
 
@@ -45,15 +36,15 @@ const AboutPage: FC = async () => {
       <div className={styles.headerWrapper}>
         <Container className={styles.header} size={1000}>
           <ResponsiveImage
-            alt='Helder Lazarotto'
+            alt='Professor Alcione'
             className={styles.headerImage}
             width={470}
             height={638}
-            src={data.headerImage?.data?.attributes.url}
+            src={data?.headerImage?.url}
           />
           <div>
-            <h1 className={styles.headerTitle}>{data.headerTitle}</h1>
-            <h2 className={styles.headerSubtitle}>{data.headerSubtitle}</h2>
+            <h1 className={styles.headerTitle}>{data?.headerTitle}</h1>
+            <h2 className={styles.headerSubtitle}>{data?.headerSubtitle}</h2>
             <SocialLinks background='purple' fill='white' />
           </div>
         </Container>
@@ -61,13 +52,13 @@ const AboutPage: FC = async () => {
       <div className={styles.about}>
         <Container size={1000}>
           <h1 className={styles.aboutTitle}>Sobre mim</h1>
-          <p className={styles.aboutText}>{data.aboutText}</p>
+          <p className={styles.aboutText}>{data?.aboutText}</p>
         </Container>
       </div>
       <Container size={700} className={styles.timeline}>
         <h1 className={styles.timelineTitle}>Minha trajetória</h1>
         <div className={styles.timelineCards}>
-          {data.timelineItems?.map((item, i) => (
+          {data?.timelineItems?.map((item, i) => (
             <div
               key={item.id}
               className={styles.timelineCard}
@@ -112,15 +103,15 @@ const AboutPage: FC = async () => {
 
       <div className={styles.bottomAbout}>
         <ResponsiveImage
-          alt='Helder Lazarotto'
+          alt='Professor Alcione'
           className={styles.bottomAboutImage}
           width={1200}
           height={590}
-          src={data.bottomImage?.data?.attributes.url}
+          src={data?.bottomImage?.url}
         />
 
         <div className={styles.bottomAboutContent}>
-          <p className={styles.bottomAboutText}>{data.bottomText}</p>
+          <p className={styles.bottomAboutText}>{data?.bottomText}</p>
           <SocialLinks background='purple' fill='white' />
         </div>
       </div>

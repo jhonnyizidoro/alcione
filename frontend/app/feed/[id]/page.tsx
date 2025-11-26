@@ -1,3 +1,4 @@
+import { StrapiRoute } from '@/@types/Routes'
 import { FC } from 'react'
 
 import { get } from '@/util/api'
@@ -6,24 +7,24 @@ import { defaultMetadata } from '@/util/seo'
 import Container from '@/components/Container/Container'
 import FeedItem from '@/components/FeedItem/FeedItem'
 
-type FeedData = SingleTypeRes<Collections.Feed>
-
-type Props = Params<'id'>
+type Props = {
+  params: { id: string }
+}
 
 export const generateMetadata = async ({ params }: Props) => {
-  const feed = await get<FeedData>(`feeds/${params.id}`)
+  const feed = await get<Api.Feed>(StrapiRoute.Feed, { suffix: params.id })
 
   return defaultMetadata(
-    `Helder Lazarotto | ${feed.data.attributes.description}`.slice(0, 70),
-    `${feed.data.attributes.description?.slice(0, 160)}...`,
+    `Professor Alcione | ${feed?.description}`.slice(0, 70),
+    `${feed?.description?.slice(0, 160)}...`,
   )
 }
 
 const getData = async (id: string) => {
-  const res = await get<FeedData>(`feeds/${id}?populate=deep,2`)
+  const res = await get<Api.Feed>(StrapiRoute.Feed, { suffix: id })
 
   return {
-    feed: res.data.attributes,
+    feed: res,
   }
 }
 

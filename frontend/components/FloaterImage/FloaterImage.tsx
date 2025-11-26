@@ -15,10 +15,10 @@ const FloaterImage: FC<Props> = ({ src }) => {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
-    const lastShown = localStorage.getItem('floater-helder')
+    const lastShown = localStorage.getItem('floater-pooup')
     const yesterday = Date.now() - 86400000
     setShow(!lastShown || Number(lastShown) < yesterday)
-    localStorage.setItem('floater-helder', String(Date.now()))
+    localStorage.setItem('floater-pooup', String(Date.now()))
   }, [])
 
   return (

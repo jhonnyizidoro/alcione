@@ -10,7 +10,7 @@ import DownloadIcon from '@/icons/Download'
 import styles from './PostGallery.module.scss'
 
 interface Props {
-  images?: Collection<Collections.Image> | null
+  images?: Strapi.Media[] | null
   title?: string
 }
 
@@ -25,7 +25,7 @@ const PostGallery: FC<Props> = ({ images, title }) => {
     a.click()
   }, [])
 
-  if (!images?.data) {
+  if (!images) {
     return
   }
 
@@ -33,18 +33,18 @@ const PostGallery: FC<Props> = ({ images, title }) => {
     <div className={styles.wrapper}>
       {title && <h2 className={styles.title}>{title}</h2>}
       <Carousel itemsToShow={[{ items: 1, size: [0, 9999] }]}>
-        {images.data.map((i, index) => (
+        {images.map((i, index) => (
           <div key={i.id} className={styles.slide}>
             <button
               type='button'
-              onClick={() => handleDownload(i.attributes.url || '')}
+              onClick={() => handleDownload(i.url || '')}
               className={styles.button}
             >
-              Download ({index + 1}/{images.data.length})
+              Download ({index + 1}/{images.length})
               <DownloadIcon width={16} className={styles.buttonIcon} />
             </button>
             <ResponsiveImage
-              src={i.attributes.url || ''}
+              src={i.url || ''}
               alt=''
               width={1000}
               height={750}

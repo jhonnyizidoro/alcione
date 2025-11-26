@@ -13,7 +13,7 @@ export const defaultMetadata = (
   description,
   metadataBase: new URL(String(process.env.NEXT_PUBLIC_DOMAIN)),
   generator: 'Next.js',
-  applicationName: 'Helder Lazarotto',
+  applicationName: 'Professor Alcione',
   creator: 'Jhonny Izidoro Menarim',
   publisher: 'Jhonny Izidoro Menarim',
   manifest: '/manifest.webmanifest',
@@ -31,7 +31,7 @@ export const defaultMetadata = (
   openGraph: {
     type: 'website',
     countryName: 'Brasil',
-    siteName: 'Helder Lazarotto',
+    siteName: 'Professor Alcione',
     title,
     description,
     images: [

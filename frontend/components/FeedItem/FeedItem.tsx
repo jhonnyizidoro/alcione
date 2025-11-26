@@ -12,8 +12,7 @@ import VerifiedIcon from '@/icons/Verified'
 import styles from './FeedItem.module.scss'
 import User from './images/user.jpg'
 
-interface Props extends Attributes<Collections.Feed> {
-  id: Entity<Collections.Post>['id']
+interface Props extends Api.Feed {
   shortDescription?: boolean
   showButton?: boolean
 }
@@ -40,21 +39,21 @@ const FeedItem: FC<Props> = ({
         alt=''
         className={styles.userImage}
       />
-      <strong className={styles.username}>helderlazarotto</strong>
+      <strong className={styles.username}>TODO: instagram</strong>
       <VerifiedIcon width={18} className={styles.userIcon} />
       <span className={styles.date}>{timeAgo(date)}</span>
     </Link>
     <Carousel itemsToShow={[{ items: 1, size: [0, 9999] }]}>
-      {gallery?.data.map((g, i) => (
+      {gallery?.map((g, i) => (
         <Link
           href={feedUrl(id)}
           aria-label='Ver postagem completa'
           key={i}
           className={styles.mediaWrapper}
         >
-          {g.attributes.mime?.includes('video') ? (
+          {g.mime?.includes('video') ? (
             <video
-              src={g.attributes.url || ''}
+              src={g.url || ''}
               width={790}
               height={1350}
               controls
@@ -63,7 +62,7 @@ const FeedItem: FC<Props> = ({
           ) : (
             <Image
               alt=''
-              src={g.attributes.url || ''}
+              src={g.url || ''}
               width={790}
               height={1350}
               className={styles.media}

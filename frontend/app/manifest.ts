@@ -1,9 +1,9 @@
 import { MetadataRoute } from 'next'
 
 const Manifest = (): MetadataRoute.Manifest => ({
-  name: 'Helder Lazarotto',
-  short_name: 'Helder Lazarotto',
-  description: `Helder Lazarotto`,
+  name: 'Professor Alcione',
+  short_name: 'Professor Alcione',
+  description: `Professor Alcione`,
   start_url: '/',
   display: 'standalone',
   background_color: '#fff',

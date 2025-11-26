@@ -4,27 +4,27 @@ import { FC } from 'react'
 import styles from './PostTags.module.scss'
 
 interface Props {
-  tags?: Collection<Collections.Tag> | null
-  category?: SingleType<Collections.Category> | null
+  tags?: Api.Tag[] | null
+  category?: Api.Category | null
 }
 
 const PostTags: FC<Props> = ({ tags, category }) => (
   <div className={styles.tags}>
-    {tags?.data.map((tag) => (
+    {tags?.map((tag) => (
       <Link
         className={styles.tag}
-        href={`/pesquisar?tag=${tag.attributes.name}`}
+        href={`/pesquisar?tag=${tag.name}`}
         key={tag.id}
       >
-        {tag.attributes.name}
+        {tag.name}
       </Link>
     ))}
-    {category?.data && (
+    {category && (
       <Link
         className={styles.tag}
-        href={`/pesquisar?categoria=${category.data.attributes.name}`}
+        href={`/pesquisar?categoria=${category.name}`}
       >
-        {category.data.attributes.name}
+        {category.name}
       </Link>
     )}
   </div>

@@ -1,6 +1,6 @@
 import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Viewport } from 'next'
-import { FC } from 'react'
+import { FC, PropsWithChildren } from 'react'
 
 import { defaultViewport } from '@/util/seo'
 
@@ -14,7 +14,7 @@ import '@/assets/styles/global.scss'
 
 export const viewport: Viewport = defaultViewport
 
-const RootLayout: FC<Children> = ({ children }) => (
+const RootLayout: FC<PropsWithChildren> = ({ children }) => (
   <html lang='pt-br'>
     <body className={proximaNova.variable}>
       <Nav />

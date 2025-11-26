@@ -23,11 +23,11 @@ const SocialLinksOverlay: FC = () => (
         src={ProfilePhoto}
         width={100}
         height={100}
-        alt='Helder Lazarotto'
+        alt='Professor Alcione'
         className={styles.image}
       />
       <h1 className={styles.title}>
-        Acompanhe o Helder Lazarotto nas redes sociais!
+        Acompanhe o Professor Alcione nas redes sociais!
       </h1>
       {allLinks.map(({ url, Icon, label }) => (
         <Link

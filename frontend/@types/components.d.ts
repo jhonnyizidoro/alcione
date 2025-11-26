@@ -1,17 +1,18 @@
-interface Children {
-  children: React.ReactElement | React.ReactElement[] | React.ReactNode
-}
-
-type SVGComponent = React.FC<React.SVGAttributes<SVGElement>>
-
-type Params<T extends string> = {
-  params: {
-    [K in T]: string
+declare namespace Components {
+  interface TimelineItem {
+    __component?: 'about.timeline-item'
+    id?: number
+    title?: null | string
+    date?: null | string
+    description?: null | string
+    link?: null | string
   }
-}
 
-type SearchParams<T extends string> = {
-  searchParams: {
-    [K in T]: string | undefined
+  interface NumbersSection {
+    __component?: 'home.numbers-section'
+    id?: number
+    title?: null | string
+    subtitle?: null | string
+    text?: null | string
   }
 }

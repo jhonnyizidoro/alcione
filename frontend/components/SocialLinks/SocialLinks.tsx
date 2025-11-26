@@ -20,27 +20,27 @@ export const socialLinks = [
   {
     label: 'Instagram',
     Icon: InstagramIcon,
-    url: 'https://www.instagram.com/helderlazarotto',
+    url: 'TODO',
   },
   {
     label: 'Facebook',
     Icon: FacebookIcon,
-    url: 'http://fb.com/helderlazarottooficial',
+    url: 'TODO',
   },
   {
     label: 'Twitter',
     Icon: XIcon,
-    url: 'https://twitter.com/PrefeitoHelderL',
+    url: 'TODO',
   },
   {
     label: 'TikTok',
     Icon: TikTokIcon,
-    url: 'https://www.tiktok.com/@prefeitohelder',
+    url: 'TODO',
   },
   {
     label: 'YouTube',
     Icon: YouTubeIcon,
-    url: 'https://www.youtube.com/@helderlazarotto9535',
+    url: 'TODO',
   },
 ]
 

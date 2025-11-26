@@ -1,12 +1,12 @@
 'use client'
 
-import { FC, useMemo } from 'react'
+import { FC, PropsWithChildren, useMemo } from 'react'
 import MultiCarousel from 'react-multi-carousel'
 import type { CarouselProps } from 'react-multi-carousel'
 
 import './Carousel.scss'
 
-interface Props extends Children {
+interface Props {
   showDots?: boolean
   itemsToShow: Array<{ size: [number, number]; items: number }>
   infinite?: boolean
@@ -14,7 +14,7 @@ interface Props extends Children {
   itemClassName?: string
 }
 
-const Carousel: FC<Props> = ({
+const Carousel: FC<PropsWithChildren<Props>> = ({
   children,
   itemsToShow,
   showDots,

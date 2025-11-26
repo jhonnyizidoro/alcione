@@ -1,3 +1,4 @@
+import { StrapiRoute } from '@/@types/Routes'
 import Link from 'next/link'
 import { FC } from 'react'
 
@@ -17,33 +18,36 @@ import PostTags from '@/components/PostTags/PostTags'
 
 import styles from './page.module.scss'
 
-type PostData = SingleTypeRes<Collections.Post>
-
-type RecentPostsData = CollectionRes<Collections.Post>
-
-type Props = Params<'slug'>
+type Props = {
+  params: {
+    slug: string
+  }
+}
 
 export const generateMetadata = async ({ params }: Props) => {
   const id = getId(params.slug)
-  const post = await get<PostData>(`posts/${id}`)
+  const post = await get<Api.Post>(StrapiRoute.Post, { suffix: id })
 
   return defaultMetadata(
-    `Helder Lazarotto | ${post.data.attributes.title}`.slice(0, 70),
-    `${stripHtml(post.data.attributes.body).slice(0, 160)}...`,
+    `Professor Alcione | ${post?.title}`.slice(0, 70),
+    `${stripHtml(post?.body).slice(0, 160)}...`,
   )
 }
 
 const getData = async (id: string) => {
   const res = await Promise.all([
-    get<PostData>(`posts/${id}?populate=deep,2`),
-    get<RecentPostsData>(
-      'posts?populate=deep,2&sort=publishDate:desc&pagination[limit]=8',
-    ),
+    get<Api.Post>(StrapiRoute.Post, { suffix: id }),
+    get<Api.Post[]>(StrapiRoute.Post, {
+      params: {
+        sort: 'publishDate:desc',
+        'pagination[limit]': '8',
+      },
+    }),
   ])
 
   return {
-    post: res[0].data.attributes,
-    recentPosts: res[1].data,
+    post: res[0],
+    recentPosts: res[1],
   }
 }
 
@@ -59,40 +63,38 @@ const PostPage: FC<Props> = async ({ params }) => {
             <div className={styles.headerTitle} data-color='purple'>
               Publicado em
             </div>
-            <Date>{formatDateTime(post.publishDate)}</Date>
+            <Date>{formatDateTime(post?.publishDate)}</Date>
           </div>
-          {post.category?.data && (
+          {post?.category && (
             <div className={styles.headerItem}>
               <div className={styles.headerTitle} data-color='orange'>
                 Categoria
               </div>
-              <Category type='text'>
-                {post.category.data.attributes.name}
-              </Category>
+              <Category type='text'>{post?.category.name}</Category>
             </div>
           )}
         </div>
         <div className={styles.previewImage}>
           <CoverPhoto
-            alt={post.title}
-            label={post.category?.data?.attributes.name}
+            alt={post?.title}
+            label={post?.category?.name}
             width={1000}
-            src={post.image?.data?.attributes.url}
+            src={post?.image?.url}
           />
         </div>
-        <h1 className={styles.title}>{post.title}</h1>
-        <PostContent content={post.body} />
+        <h1 className={styles.title}>{post?.title}</h1>
+        <PostContent content={post?.body} />
         <PostGallery
-          images={post.gallery}
+          images={post?.gallery}
           title='Galeria de fotos do evento | Faça o download de sua foto'
         />
-        <PostTags tags={post.tags} category={post.category} />
+        <PostTags tags={post?.tags} category={post?.category} />
       </Container>
       <Container>
         <h2 className={styles.sectionTitle}>Publicações Recentes</h2>
         <div className={styles.recentPostsGrid}>
           {recentPosts?.map((post) => (
-            <PostCard key={post.id} {...post.attributes} id={post.id} />
+            <PostCard key={post?.id} {...post} id={post?.id} />
           ))}
         </div>
         <Link href='/pesquisar' className={styles.sectionButton}>

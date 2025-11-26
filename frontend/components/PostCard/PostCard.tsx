@@ -10,11 +10,7 @@ import Date from '@/components/Date/Date'
 
 import styles from './PostCard.module.scss'
 
-interface Props extends Attributes<Collections.Post> {
-  id: Entity<Collections.Post>['id']
-}
-
-const PostCard: FC<Props> = ({
+const PostCard: FC<Api.Post> = ({
   id,
   publishDate,
   title,
@@ -25,9 +21,9 @@ const PostCard: FC<Props> = ({
   <Link className={styles.card} href={postUrl(title, id)}>
     <CoverPhoto
       alt={title}
-      label={category?.data?.attributes.name}
+      label={category?.name}
       width={390}
-      src={image?.data?.attributes.url}
+      src={image?.url}
     />
     <div className={styles.content}>
       <Date>{formatDateTime(publishDate)}</Date>

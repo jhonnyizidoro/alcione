@@ -1,29 +1,26 @@
-import { notFound } from 'next/navigation'
+import { StrapiRoute } from '@/@types/Routes'
 
-export const get = async <T extends SingleType<unknown> | Collection<unknown>>(
-  collection: string,
+export const get = async <T>(
+  route: StrapiRoute,
+  opts?: { suffix?: string; params?: Record<string, string> },
 ) => {
-  const endpoint = `${process.env.API_ENDPOINT}/${collection}`
-  const headers = {
-    Authorization: `Bearer ${process.env.API_TOKEN}`,
-  }
+  const params = new URLSearchParams({
+    ...(opts?.params || {}),
+    pLevel: '10',
+  })
+
+  const suffix = opts?.suffix ? `${opts.suffix}/` : ''
+  const endpoint = `${process.env.API_ENDPOINT}/${route}${suffix}?${params.toString()}`
+  const headers = { Authorization: `Bearer ${process.env.API_TOKEN}` }
 
   const res = await fetch(endpoint, {
     headers,
     next: { revalidate: 60 * 60 },
   })
 
-  if (res.status === 404) {
-    notFound()
-  } else if (res.status !== 200) {
-    throw new Error(
-      JSON.stringify({ message: 'Error fetching data', endpoint, headers }),
-    )
-  }
+  const data = await res.json()
 
-  const data = (await res.json()) as T
-
-  return data
+  return data.data as T | undefined
 }
 
 export const post = async (collection: string, payload: object) => {

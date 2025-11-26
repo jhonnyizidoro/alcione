@@ -14,7 +14,7 @@ const Nav: FC = () => (
       <Image
         src={Logo}
         width={150}
-        alt='Helder Lazarotto'
+        alt='Professor Alcione'
         className={styles.logo}
       />
     </Link>

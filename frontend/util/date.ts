@@ -8,7 +8,7 @@ export const formatDate = (date?: string | null) => {
   return `${s[2]}/${s[1]}/${s[0]}`
 }
 
-export const stripHtml = (html: string | null) =>
+export const stripHtml = (html?: string | null) =>
   (html || '').replace(/<[^>]*>?/gm, '')
 
 export const timeAgo = (date?: string | null) => {

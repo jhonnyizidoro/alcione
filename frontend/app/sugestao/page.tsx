@@ -8,8 +8,8 @@ import SuggestionForm from '@/components/SuggestionForm/SuggestionForm'
 import styles from './page.module.scss'
 
 export const metadata = defaultMetadata(
-  'Helder Lazarotto | Deixe sua sugestão',
-  'Helder Lazarotto: Deixe sua sugestão para uma Colombo melhor',
+  'Professor Alcione | Deixe sua sugestão',
+  'Professor Alcione: Deixe sua sugestão para uma Colombo melhor',
 )
 
 const SuggestionsPage: FC = async () => (

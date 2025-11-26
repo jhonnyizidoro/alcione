@@ -1,3 +1,4 @@
+import { StrapiRoute } from '@/@types/Routes'
 import { Metadata } from 'next'
 import { FC, Suspense } from 'react'
 
@@ -12,11 +13,14 @@ import Select from '@/components/Select/Select'
 
 import styles from './page.module.scss'
 
-type CategoriesData = CollectionRes<Collections.Category>
-
-type TagsData = CollectionRes<Collections.Tag>
-
-type Props = SearchParams<'ordem' | 'categoria' | 'tag' | 'texto'>
+type Props = {
+  searchParams: {
+    ordem: string
+    categoria: string
+    tag: string
+    texto: string
+  }
+}
 
 export const generateMetadata = ({ searchParams }: Props): Metadata => {
   let search = 'Busca por '
@@ -28,20 +32,21 @@ export const generateMetadata = ({ searchParams }: Props): Metadata => {
   })
 
   return defaultMetadata(
-    `Helder Lazarotto | ${search}`,
+    `Professor Alcione | ${search}`,
     `Veja os resultados da busca por ${search}`,
   )
 }
 
 const getData = async () => {
+  // TODO: is this working?
   const res = await Promise.all([
-    get<CategoriesData>(`categories?sort=name`),
-    get<TagsData>(`tags?sort=name`),
+    get<Api.Category[]>(StrapiRoute.Category, { params: { sort: 'name' } }),
+    get<Api.Tag[]>(StrapiRoute.Tag, { params: { sort: 'name' } }),
   ])
 
   return {
-    categories: res[0].data,
-    tags: res[1].data,
+    categories: res[0],
+    tags: res[1],
   }
 }
 
@@ -62,14 +67,12 @@ const SearchPage: FC<Props> = async ({ searchParams }) => {
           <Select
             prop='categoria'
             label='Categoria'
-            options={categories.map((category) =>
-              String(category.attributes.name),
-            )}
+            options={categories?.map((category) => String(category.name)) || []}
           />
           <Select
             prop='tag'
             label='Tag'
-            options={tags.map((tag) => String(tag.attributes.name))}
+            options={tags?.map((tag) => String(tag.name)) || []}
           />
         </div>
       </Container>
