@@ -1,0 +1,17 @@
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 95%;
+
+  &[data-size='1640'] {
+    width: 1640px;
+  }
+
+  &[data-size='1000'] {
+    width: 1000px;
+  }
+
+  &[data-size='700'] {
+    width: 700px;
+  }
+}

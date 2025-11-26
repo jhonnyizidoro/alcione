@@ -1,0 +1,89 @@
+.react-multi-carousel-list {
+  display: flex;
+  position: relative;
+  align-items: center;
+  overflow: hidden;
+
+  &[dir='rtl'] {
+    direction: rtl;
+  }
+}
+
+.react-multi-carousel-track {
+  display: flex;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, transition;
+}
+
+.react-multiple-carousel__arrow {
+  position: absolute;
+  transition: all 0.5s;
+  border-radius: 35px;
+  background: rgba(0, 0, 0, 0.5);
+  width: 43px;
+  height: 43px;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  &::before {
+    display: inline-block;
+    position: absolute;
+    top: 17px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    padding: 4px;
+    content: '';
+  }
+
+  &--left {
+    left: calc(2% + 1px);
+
+    &::before {
+      left: 20px;
+      transform: rotate(135deg);
+    }
+  }
+
+  &--right {
+    right: calc(2% + 1px);
+
+    &::before {
+      right: 17px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.react-multi-carousel-dot-list {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  left: 0;
+  justify-content: center;
+  transition: 0.15s;
+}
+
+.react-multi-carousel-dot button {
+  transition: background 0.5s;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: gray;
+  padding: 0;
+  width: 12px;
+  height: 12px;
+}
+
+.react-multi-carousel-dot button:hover:active,
+.react-multi-carousel-dot--active button {
+  background: var(--color-purple);
+}
+
+.react-multi-carousel-item {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}

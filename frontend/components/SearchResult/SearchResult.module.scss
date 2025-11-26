@@ -1,0 +1,11 @@
+.noResultsWrapper {
+  grid-column: span 4;
+  text-align: center;
+}
+
+.noResultsTitle {
+  margin-bottom: 10px;
+  color: var(--color-purple);
+  font-weight: var(--font-semibold);
+  font-size: 20px;
+}

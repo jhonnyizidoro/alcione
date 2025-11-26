@@ -1,0 +1,47 @@
+.card {
+  display: block;
+  position: relative;
+  border: 2px solid var(--color-purple);
+  border-radius: 8px;
+  padding-bottom: 65px;
+  overflow: hidden;
+}
+
+.content {
+  padding: 15px;
+}
+
+.title {
+  margin: 15px 0;
+  font-weight: var(--font-semibold);
+  font-size: 20px;
+}
+
+.preview {
+  color: var(--color-dimgray);
+  line-height: 1.2;
+  -webkit-line-clamp: 7;
+  line-clamp: 7;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+
+.buttonWrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 15px;
+  width: 100%;
+}
+
+.button {
+  border: 2px solid var(--color-purple);
+  border-radius: 8px;
+  background: var(--color-yellow);
+  padding: 15px 0;
+  color: var(--color-purple);
+  font-weight: var(--font-semibold);
+  font-size: 18px;
+  text-align: center;
+}

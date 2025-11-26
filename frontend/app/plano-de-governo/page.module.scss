@@ -1,0 +1,19 @@
+.title {
+  margin-block: 70px 30px;
+  color: var(--color-purple);
+  font-weight: var(--font-semibold);
+  font-size: 32px;
+  text-align: center;
+}
+
+.link {
+  display: block;
+  margin: 40px auto;
+  border: 2px solid var(--color-purple);
+  border-radius: 8px;
+  background: var(--color-yellow);
+  padding: 13px;
+  width: fit-content;
+  color: var(--color-purple);
+  font-weight: var(--font-semibold);
+}

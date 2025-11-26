@@ -1,0 +1,26 @@
+.button {
+  @media (max-width: 1000px) {
+    display: flex;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+    border: 2px solid var(--color-purple);
+    border-radius: 7px;
+    background: var(--color-yellow);
+    padding: 7px;
+    font-weight: var(--font-semibold);
+  }
+
+  @media (min-width: 1001px) {
+    display: none;
+  }
+}
+
+.icon {
+  @media (max-width: 1000px) {
+    fill: var(--color-purple);
+  }
+}

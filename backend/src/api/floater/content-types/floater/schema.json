@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "floaters",
+  "info": {
+    "singularName": "floater",
+    "pluralName": "floaters",
+    "displayName": "Floater"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "floater": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

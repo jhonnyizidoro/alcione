@@ -1,0 +1,23 @@
+.formSelects {
+  display: grid;
+
+  @media (min-width: 1001px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-block: 15px 50px;
+  }
+
+  @media (max-width: 1000px) {
+    gap: 7px;
+    margin-block: 7px 30px;
+  }
+}
+
+.result {
+  display: grid;
+  gap: 20px;
+
+  @media (min-width: 1001px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

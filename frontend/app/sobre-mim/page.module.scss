@@ -1,0 +1,266 @@
+.headerWrapper {
+  border-top: 1px solid var(--color-gray);
+}
+
+.header {
+  display: grid;
+
+  @media (min-width: 1001px) {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+  }
+
+  @media (max-width: 1000px) {
+    gap: 30px;
+    padding-bottom: 40px;
+  }
+}
+
+.headerImage {
+  width: 100%;
+  height: auto;
+
+  @media (min-width: 1001px) {
+    margin: -20px 0 -50px;
+  }
+
+  @media (max-width: 1000px) {
+    margin-top: -12px;
+  }
+}
+
+.headerTitle {
+  color: var(--color-purple);
+  font-weight: var(--font-extrabold);
+  font-size: 80px;
+}
+
+.headerSubtitle {
+  margin: 30px 0;
+  color: var(--color-dimgray);
+  font-weight: var(--font-semibold);
+  font-size: 24px;
+}
+
+.about {
+  background: var(--color-lightgray);
+
+  @media (min-width: 1001px) {
+    padding: 150px 0;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 40px 0;
+  }
+}
+
+.aboutTitle {
+  font-weight: var(--font-semibold);
+  font-size: 32px;
+}
+
+.aboutText {
+  margin-top: 20px;
+  color: var(--color-dimgray);
+  line-height: 1.2;
+  white-space: pre-wrap;
+}
+
+.timeline {
+  position: relative;
+  box-shadow: 15px 30px 35px rgba($color: #000, $alpha: 0.1);
+  border: 1px solid rgba($color: #000, $alpha: 0.07);
+  border-radius: 10px;
+  background: white;
+
+  @media (min-width: 1001px) {
+    margin-top: -50px;
+    padding: 30px;
+  }
+
+  @media (max-width: 1000px) {
+    margin-top: -15px;
+    padding: 15px;
+  }
+}
+
+.timelineTitle {
+  margin-bottom: 50px;
+  font-weight: var(--font-semibold);
+  font-size: 32px;
+}
+
+.timelineCards {
+  display: grid;
+  position: relative;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-radius: 99px;
+    background: var(--color-gray);
+    width: 5px;
+    height: 100%;
+    content: '';
+  }
+
+  @media (min-width: 1001px) {
+    gap: 50px;
+    padding-left: 100px;
+  }
+
+  @media (max-width: 1000px) {
+    gap: 20px;
+    padding-left: 20px;
+  }
+}
+
+.timelineCard {
+  position: relative;
+  border-radius: 5px;
+
+  &::before {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 100%;
+    height: 3px;
+    content: '';
+  }
+
+  &[data-color='yellow'] {
+    border: 2px solid var(--color-yellow);
+
+    &::before {
+      background: linear-gradient(
+        to left,
+        var(--color-yellow),
+        var(--color-lightgray)
+      );
+    }
+  }
+
+  &[data-color='purple'] {
+    border: 2px solid var(--color-purple);
+
+    &::before {
+      background: linear-gradient(
+        to left,
+        var(--color-purple),
+        var(--color-lightgray)
+      );
+    }
+  }
+
+  @media (min-width: 1001px) {
+    width: 350px;
+
+    &[data-position='left'] {
+      margin: 0 auto 0 0;
+
+      &::before {
+        width: 100px;
+      }
+    }
+
+    &[data-position='center'] {
+      margin: 0 auto;
+
+      &::before {
+        width: 195px;
+      }
+    }
+
+    &[data-position='right'] {
+      margin: 0 0 0 auto;
+
+      &::before {
+        width: 290px;
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    margin: 0 0 0 auto;
+    width: 70%;
+
+    &::before {
+      width: 50%;
+    }
+  }
+}
+
+.timelineCardTitle {
+  padding: 8px 0;
+  font-weight: var(--font-semibold);
+  font-size: 18px;
+  text-align: center;
+
+  &[data-color='yellow'] {
+    background: var(--color-yellow);
+  }
+
+  &[data-color='purple'] {
+    background: var(--color-purple);
+    color: white;
+  }
+}
+
+.timelineCardContent {
+  padding: 15px;
+}
+
+.timelineCardText {
+  margin: 10px 0;
+  color: var(--color-dimgray);
+  line-height: 1.2;
+}
+
+.timelineCardLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-purple);
+  font-weight: var(--font-semibold);
+}
+
+.timelineCardLinkIcon {
+  fill: var(--color-purple);
+}
+
+.bottomAbout {
+  display: grid;
+  margin: -20px 0 -80px;
+  background: var(--color-lightgray);
+
+  @media (min-width: 1001px) {
+    grid-template-columns: auto 700px;
+    align-items: center;
+  }
+}
+
+.bottomAboutImage {
+  width: 100%;
+  height: auto;
+}
+
+.bottomAboutContent {
+  @media (min-width: 1001px) {
+    padding: 70px;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 20px;
+  }
+}
+
+.bottomAboutText {
+  margin-bottom: 40px;
+  color: var(--color-dimgray);
+  line-height: 1.4;
+  white-space: pre-wrap;
+}

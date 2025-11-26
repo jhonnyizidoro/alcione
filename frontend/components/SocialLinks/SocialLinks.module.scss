@@ -1,0 +1,45 @@
+.iconsWrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.link {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+  &[data-background='yellow'] {
+    background: var(--color-yellow);
+  }
+
+  &[data-background='purple'] {
+    background: var(--color-purple);
+  }
+}
+
+.icon {
+  &[data-fill='lightPurple'] {
+    fill: var(--color-light-purple);
+  }
+
+  &[data-fill='white'] {
+    fill: white;
+  }
+
+  &[data-fill='dark'] {
+    fill: var(--color-dark);
+  }
+}
+
+.text {
+  margin-bottom: 10px;
+  max-width: 250px;
+
+  &[data-color='white'] {
+    color: white;
+  }
+}

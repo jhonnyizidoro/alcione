@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+}
+
+.button {
+  margin-left: -5px;
+  border-radius: 6px;
+  background: var(--color-purple);
+  padding: 0 25px;
+}
+
+.buttonIcon {
+  fill: var(--color-yellow);
+}

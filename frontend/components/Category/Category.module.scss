@@ -1,0 +1,30 @@
+.category {
+  display: inline-flex;
+  align-items: center;
+
+  &[data-type='text'] {
+    color: var(--color-dimgray);
+  }
+
+  &[data-type='label'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 4px;
+    background: var(--color-purple);
+    padding: 3px 7px;
+    color: white;
+  }
+}
+
+.categoryIcon {
+  margin-right: 7px;
+
+  &[data-type='text'] {
+    fill: var(--color-dimgray);
+  }
+
+  &[data-type='label'] {
+    fill: white;
+  }
+}

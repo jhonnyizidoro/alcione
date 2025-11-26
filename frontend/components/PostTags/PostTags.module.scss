@@ -1,0 +1,24 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+  border-top: 1px solid var(--color-gray);
+  padding-top: 30px;
+}
+
+.tag {
+  border: 2px solid var(--color-purple);
+  border-radius: 99px;
+  background: var(--color-lightgray);
+  color: var(--color-purple);
+  font-weight: var(--font-semibold);
+
+  @media (min-width: 1001px) {
+    padding: 10px 40px;
+  }
+
+  @media (max-width: 1000px) {
+    padding: 10px 20px;
+  }
+}

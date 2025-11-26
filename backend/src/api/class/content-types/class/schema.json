@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "classes",
+  "info": {
+    "singularName": "class",
+    "pluralName": "classes",
+    "displayName": "Class",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "classItems": {
+      "displayName": "classes",
+      "type": "component",
+      "repeatable": true,
+      "component": "class.classes"
+    }
+  }
+}

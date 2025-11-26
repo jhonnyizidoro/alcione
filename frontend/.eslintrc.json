@@ -1,0 +1,14 @@
+{
+  "extends": ["next/core-web-vitals"],
+  "plugins": ["prettier", "@typescript-eslint"],
+  "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-curly-brace-presence": ["warn", "never"],
+    "react/jsx-boolean-value": ["warn", "never"],
+    "react/self-closing-comp": "error",
+    "eqeqeq": "error",
+    "prefer-template": 1,
+    "@typescript-eslint/no-unused-vars": ["error"]
+  },
+  "ignorePatterns": ["next.config.js"]
+}

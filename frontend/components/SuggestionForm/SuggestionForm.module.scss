@@ -1,0 +1,13 @@
+.form {
+  display: grid;
+  gap: 15px;
+}
+
+.button {
+  border: 2px solid var(--color-purple);
+  border-radius: 8px;
+  background: var(--color-yellow);
+  padding: 15px 0;
+  color: var(--color-purple);
+  font-weight: var(--font-semibold);
+}

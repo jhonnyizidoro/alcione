@@ -1,0 +1,9 @@
+packages:
+  - backend
+  - frontend
+onlyBuiltDependencies:
+  - '@strapi/strapi'
+  - '@swc/core'
+  - core-js-pure
+  - esbuild
+  - sharp
