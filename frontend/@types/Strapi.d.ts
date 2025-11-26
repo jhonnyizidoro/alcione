@@ -62,13 +62,4 @@ declare namespace Strapi {
     createdAt?: Date
     updatedAt?: Date
   }
-
-  interface IconHubIcon {
-    iconName?: string
-    iconData?: string
-    width?: number
-    height?: number
-    isSvgEditable?: boolean
-    isIconNameEditable?: boolean
-  }
 }

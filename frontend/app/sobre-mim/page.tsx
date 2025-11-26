@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { FC } from 'react'
 
 import { get } from '@/util/api'
-import { formatDate } from '@/util/date'
+import { formatDateYear } from '@/util/date'
 import { defaultMetadata } from '@/util/seo'
 
 import Container from '@/components/Container/Container'
@@ -78,7 +78,7 @@ const AboutPage: FC = async () => {
                 {item.title}
               </div>
               <div className={styles.timelineCardContent}>
-                <Date>{formatDate(item.date)}</Date>
+                <Date>{formatDateYear(item.date)}</Date>
                 <div className={styles.timelineCardText}>
                   {item.description}
                 </div>

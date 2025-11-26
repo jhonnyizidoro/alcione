@@ -43,10 +43,9 @@
       "target": "api::category.category"
     },
     "numbersSection": {
-      "displayName": "numbersSection",
       "type": "component",
-      "repeatable": true,
-      "component": "home.numbers-section"
+      "component": "home.numbers-section",
+      "repeatable": true
     },
     "aboutText": {
       "type": "text"
@@ -63,11 +62,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::post.post"
-    },
-    "feed": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::feed.feed"
     }
   }
 }

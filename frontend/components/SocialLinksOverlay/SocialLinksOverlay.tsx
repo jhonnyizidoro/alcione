@@ -4,15 +4,16 @@ import { FC } from 'react'
 
 import { socialLinks } from '@/components/SocialLinks/SocialLinks'
 
-import DownloadIcon from '@/icons/Download'
+// import DownloadIcon from '@/icons/Download'
 import WebIcon from '@/icons/Web'
 
 import styles from './SocialLinksOverlay.module.scss'
+// TODO: update image
 import ProfilePhoto from './images/profile-photo.jpg'
 
 const allLinks = [
   { url: '/', Icon: WebIcon, label: 'Visite meu site' },
-  { url: '/plano-de-governo', Icon: DownloadIcon, label: 'Plano de governo' },
+  // { url: '/plano-de-governo', Icon: DownloadIcon, label: 'Plano de governo' },
   ...socialLinks,
 ]
 

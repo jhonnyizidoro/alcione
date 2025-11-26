@@ -12,7 +12,7 @@ import styles from './page.module.scss'
 
 export const metadata = defaultMetadata(
   'Professor Alcione | Plano de governo',
-  'Professor Alcione: confira o plano de governo do prefeito Professor Alcione para a cidade de Colombo.',
+  'Professor Alcione: confira o plano de governo do Professor Alcione.',
 )
 
 const getData = async () => {

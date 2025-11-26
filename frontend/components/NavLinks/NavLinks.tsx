@@ -26,27 +26,13 @@ const NavLinks: FC = () => {
         >
           Postagens
         </Link>
-        <Link
-          className={styles.link}
-          href='/aulas-gratuitas'
-          onClick={() => setOpen(false)}
-        >
-          Aulas de esporte gratuitas
-        </Link>
-        <Link
+        {/* <Link
           className={styles.link}
           href='/plano-de-governo'
           onClick={() => setOpen(false)}
         >
           Plano de governo
-        </Link>
-        <Link
-          className={styles.link}
-          href='/sobre-mim'
-          onClick={() => setOpen(false)}
-        >
-          Sobre mim
-        </Link>
+        </Link> */}
       </div>
     </>
   )

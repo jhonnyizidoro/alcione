@@ -33,21 +33,17 @@
   border-radius: 8px;
   background: var(--color-yellow);
   color: var(--color-purple);
+  font-weight: var(--font-semibold);
+  font-size: 18px;
   text-align: center;
 
   @media (min-width: 1001px) {
     margin-left: 25px;
-    padding: 8px 40px;
+    padding: 17px 40px;
   }
 
   @media (max-width: 1000px) {
     margin-right: 10px;
-    padding: 8px 20px;
+    padding: 17px 20px;
   }
-}
-
-.buttonStrong {
-  display: block;
-  font-weight: var(--font-semibold);
-  font-size: 18px;
 }

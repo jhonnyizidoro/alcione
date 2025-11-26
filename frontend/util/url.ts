@@ -1,5 +1,7 @@
+import { ReadonlyURLSearchParams } from 'next/navigation'
+
 export const paramToUrl = (
-  currentParams: URLSearchParams,
+  currentParams: ReadonlyURLSearchParams,
   pathname: string,
   prop: string,
   value: string,
@@ -30,8 +32,6 @@ const slugify = (string: string | null | undefined) =>
 
 export const postUrl = (string: null | string | undefined, id = 0) =>
   `/postagem/${slugify(string)}-${id}`
-
-export const feedUrl = (id = 0) => `/feed/${id}`
 
 export const getId = (string: null | string | undefined) => {
   const id = string?.split('-').pop()

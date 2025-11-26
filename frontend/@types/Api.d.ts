@@ -16,27 +16,11 @@ declare namespace Api {
     description?: null | string
   }
 
-  interface Contact {
-    id?: number
-    name?: null | string
-    subject?: null | string
-    content?: null | string
-    contact?: null | string
-  }
-
   interface ElectionPlatform {
     id?: number
     file?: null | Strapi.Media
     content?: null | string
     title?: null | string
-  }
-
-  interface Feed {
-    id?: number
-    gallery?: null | Strapi.Media[]
-    description?: null | string
-    date?: null | string
-    url?: null | string
   }
 
   interface Floater {
@@ -61,7 +45,6 @@ declare namespace Api {
     aboutText?: null | string
     aboutImage?: Strapi.Media
     featuredProjects?: null | Api.Post[]
-    feed?: null | Api.Feed[]
   }
 
   interface Post {

@@ -65,20 +65,10 @@ export const media = `
     updatedAt?: Date;
   }
 `
-export const iconHubIcon = `
-  interface IconHubIcon {
-    iconName?: string
-    iconData?: string
-    width?: number
-    height?: number
-    isSvgEditable?: boolean
-    isIconNameEditable?: boolean
-  }
-`
-export const strapiInterfaces = [payload, user, mediaFormat, media, iconHubIcon]
+
+export const strapiInterfaces = [payload, user, mediaFormat, media]
 
 export const customFieldMap = {
   'plugin::color-picker.color': '`#${string}`',
   'plugin::ckeditor5.CKEditor': 'string',
-  'plugin::strapi-plugin-iconhub.iconhub': `Strapi.IconHubIcon`,
 } as const

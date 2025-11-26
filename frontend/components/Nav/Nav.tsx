@@ -20,9 +20,8 @@ const Nav: FC = () => (
     </Link>
     <div className={styles.linksWrapper}>
       <NavLinks />
-      <Link className={styles.button} href='/hospital-de-colombo'>
-        <strong className={styles.buttonStrong}>Hospital</strong>
-        de Colombo
+      <Link className={styles.button} href='/sobre-mim'>
+        Sobre mim
       </Link>
     </div>
   </Container>

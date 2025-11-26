@@ -8,7 +8,6 @@ import { formatDateTime } from '@/util/date'
 import Container from '@/components/Container/Container'
 import CoverPhoto from '@/components/CoverPhoto/CoverPhoto'
 import Date from '@/components/Date/Date'
-import FeedItem from '@/components/FeedItem/FeedItem'
 import InstaFeed from '@/components/InstaFeed/InstaFeed'
 import PostCard from '@/components/PostCard/PostCard'
 import PostContent from '@/components/PostContent/PostContent'
@@ -68,9 +67,6 @@ const HomePage: FC = async () => {
           </Link>
         </div>
         <article className={styles.preview}>
-          {data?.feed?.map((f, i) => (
-            <FeedItem key={i} id={f.id} {...f} shortDescription />
-          ))}
           <div className={styles.previewImage}>
             <CoverPhoto
               width={790}

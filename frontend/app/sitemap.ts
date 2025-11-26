@@ -2,20 +2,12 @@ import { StrapiRoute } from '@/@types/Routes'
 import { MetadataRoute } from 'next'
 
 import { get } from '@/util/api'
-import { feedUrl, postUrl } from '@/util/url'
+import { postUrl } from '@/util/url'
 
 const domain = String(process.env.NEXT_PUBLIC_DOMAIN)
 
 const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
-  const staticPages = [
-    '/',
-    '/pesquisar',
-    '/hospital-de-colombo',
-    '/sobre-mim',
-    '/aulas-gratuitas',
-    '/sugestao',
-    '/plano-de-governo',
-  ]
+  const staticPages = ['/', '/pesquisar', '/sobre-mim', '/plano-de-governo']
 
   const links: MetadataRoute.Sitemap = staticPages.map((url) => ({
     url: domain + url,
@@ -28,7 +20,6 @@ const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
     get<Api.Category[]>(StrapiRoute.Category),
     get<Api.Tag[]>(StrapiRoute.Tag),
     get<Api.Post[]>(StrapiRoute.Post),
-    get<Api.Feed[]>(StrapiRoute.Feed),
   ])
 
   res[0]?.forEach((c) => {
@@ -53,15 +44,6 @@ const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
     links.push({
       url: `${domain}${postUrl(p.title, p.id)}`,
       lastModified: p.publishDate || '',
-      changeFrequency: 'weekly',
-      priority: 1,
-    })
-  })
-
-  res[3]?.forEach((p) => {
-    links.push({
-      url: `${domain}${feedUrl(p.id)}`,
-      lastModified: p.date || '',
       changeFrequency: 'weekly',
       priority: 1,
     })

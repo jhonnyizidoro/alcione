@@ -38,7 +38,6 @@ export const generateMetadata = ({ searchParams }: Props): Metadata => {
 }
 
 const getData = async () => {
-  // TODO: is this working?
   const res = await Promise.all([
     get<Api.Category[]>(StrapiRoute.Category, { params: { sort: 'name' } }),
     get<Api.Tag[]>(StrapiRoute.Tag, { params: { sort: 'name' } }),

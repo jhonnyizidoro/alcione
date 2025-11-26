@@ -8,7 +8,7 @@ const InstaFeed: FC = () => (
       strategy='lazyOnload'
     />
     <div
-      className='elfsight-app-72124541-68ae-44f6-95c7-f1052e6f98a5'
+      className='elfsight-app-42cb858b-cb4e-45d9-a7b0-a581523f27ee'
       data-elfsight-app-lazy
     />
   </>

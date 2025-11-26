@@ -8,6 +8,10 @@ export const formatDate = (date?: string | null) => {
   return `${s[2]}/${s[1]}/${s[0]}`
 }
 
+export const formatDateYear = (date?: string | null) => {
+  return new Date(date || '2000-01-01').getFullYear()
+}
+
 export const stripHtml = (html?: string | null) =>
   (html || '').replace(/<[^>]*>?/gm, '')
 

@@ -492,38 +492,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   }
 }
 
-export interface ApiContactContact extends Struct.CollectionTypeSchema {
-  collectionName: 'contacts'
-  info: {
-    description: ''
-    displayName: 'Contact'
-    pluralName: 'contacts'
-    singularName: 'contact'
-  }
-  options: {
-    draftAndPublish: false
-  }
-  attributes: {
-    contact: Schema.Attribute.String & Schema.Attribute.Required
-    content: Schema.Attribute.Text & Schema.Attribute.Required
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private
-    locale: Schema.Attribute.String & Schema.Attribute.Private
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::contact.contact'
-    > &
-      Schema.Attribute.Private
-    name: Schema.Attribute.String & Schema.Attribute.Required
-    publishedAt: Schema.Attribute.DateTime
-    subject: Schema.Attribute.String & Schema.Attribute.Required
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private
-  }
-}
-
 export interface ApiElectionPlatformElectionPlatform
   extends Struct.SingleTypeSchema {
   collectionName: 'election_platforms'
@@ -552,36 +520,6 @@ export interface ApiElectionPlatformElectionPlatform
     updatedAt: Schema.Attribute.DateTime
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private
-  }
-}
-
-export interface ApiFeedFeed extends Struct.CollectionTypeSchema {
-  collectionName: 'feeds'
-  info: {
-    description: ''
-    displayName: 'Feed'
-    pluralName: 'feeds'
-    singularName: 'feed'
-  }
-  options: {
-    draftAndPublish: false
-  }
-  attributes: {
-    createdAt: Schema.Attribute.DateTime
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private
-    date: Schema.Attribute.DateTime
-    description: Schema.Attribute.Text
-    gallery: Schema.Attribute.Media<'images' | 'videos', true> &
-      Schema.Attribute.Required
-    locale: Schema.Attribute.String & Schema.Attribute.Private
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::feed.feed'> &
-      Schema.Attribute.Private
-    publishedAt: Schema.Attribute.DateTime
-    updatedAt: Schema.Attribute.DateTime
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private
-    url: Schema.Attribute.String
   }
 }
 
@@ -666,7 +604,6 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     featuredPost: Schema.Attribute.Relation<'oneToOne', 'api::post.post'>
     featuredPosts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>
     featuredProjects: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>
-    feed: Schema.Attribute.Relation<'oneToMany', 'api::feed.feed'>
     headerImage: Schema.Attribute.Media<'images'>
     headerSubtitle: Schema.Attribute.String
     headerTitle: Schema.Attribute.String
@@ -1098,9 +1035,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser
       'api::about.about': ApiAboutAbout
       'api::category.category': ApiCategoryCategory
-      'api::contact.contact': ApiContactContact
       'api::election-platform.election-platform': ApiElectionPlatformElectionPlatform
-      'api::feed.feed': ApiFeedFeed
       'api::floater.floater': ApiFloaterFloater
       'api::footer.footer': ApiFooterFooter
       'api::home.home': ApiHomeHome

@@ -24,7 +24,7 @@ const buildSearchString = ({ sort, category, tag, search }: Props) => {
   }
 
   if (tag) {
-    params['&filters[tags][name][$eq]'] = tag
+    params['filters[tags][name][$eq]'] = tag
   }
 
   if (!sort || sort === 'Mais recentes') {
@@ -45,7 +45,6 @@ const buildSearchString = ({ sort, category, tag, search }: Props) => {
 }
 
 const SearchResult: FC<Props> = async ({ sort, category, tag, search }) => {
-  // TODO: is this working?
   const params = buildSearchString({ sort, category, tag, search })
   const data = await get<Api.Post[]>(StrapiRoute.Post, { params })
 
