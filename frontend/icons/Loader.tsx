@@ -1,4 +1,6 @@
-const LoaderIcon: SVGComponent = (props) => (
+import { FC, SVGAttributes } from 'react'
+
+const LoaderIcon: FC<SVGAttributes<SVGElement>> = (props) => (
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 104' {...props}>
     <path
       d='m52,0h0c3.31,0,6,5.37,6,12h0c0,6.63-2.69,12-6,12h0c-3.31,0-6-5.37-6-12h0c0-6.63,2.69-12,6-12Z'

@@ -1,4 +1,6 @@
-const LinkIcon: SVGComponent = (props) => (
+import { FC, SVGAttributes } from 'react'
+
+const LinkIcon: FC<SVGAttributes<SVGElement>> = (props) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 575.01 575.01'

@@ -1,4 +1,6 @@
-const SearchIcon: SVGComponent = (props) => (
+import { FC, SVGAttributes } from 'react'
+
+const SearchIcon: FC<SVGAttributes<SVGElement>> = (props) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 28.138 28.138'

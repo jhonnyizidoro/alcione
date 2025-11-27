@@ -1,4 +1,6 @@
-const DownIcon: SVGComponent = (props) => (
+import { FC, SVGAttributes } from 'react'
+
+const DownIcon: FC<SVGAttributes<SVGElement>> = (props) => (
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 333.33 200' {...props}>
     <path d='m166.67,200c-8.84,0-17.32-3.51-23.57-9.76L9.76,56.9C-3.25,43.89-3.25,22.78,9.76,9.76c13.02-13.02,34.12-13.02,47.14,0l109.76,109.76L276.43,9.76c13.02-13.02,34.12-13.02,47.14,0,13.02,13.02,13.02,34.12,0,47.14l-133.33,133.33c-6.25,6.25-14.73,9.76-23.57,9.76Z' />
   </svg>

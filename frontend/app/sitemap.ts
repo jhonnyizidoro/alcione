@@ -42,7 +42,7 @@ const Sitemap = async (): Promise<MetadataRoute.Sitemap> => {
 
   res[2]?.forEach((p) => {
     links.push({
-      url: `${domain}${postUrl(p.title, p.id)}`,
+      url: `${domain}${postUrl(p.title, p.documentId)}`,
       lastModified: p.publishDate || '',
       changeFrequency: 'weekly',
       priority: 1,

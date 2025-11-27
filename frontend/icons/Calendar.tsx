@@ -1,4 +1,6 @@
-const CalendarIcon: SVGComponent = (props) => (
+import { FC, SVGAttributes } from 'react'
+
+const CalendarIcon: FC<SVGAttributes<SVGElement>> = (props) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
     viewBox='0 0 666.67 666.67'
