@@ -13,7 +13,7 @@ const Nav: FC = () => (
     <Link href='/'>
       <Image
         src={Logo}
-        width={150}
+        width={250}
         alt='Professor Alcione'
         className={styles.logo}
       />

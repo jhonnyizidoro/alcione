@@ -20,7 +20,7 @@
   font-size: 14px;
 
   &[data-color='purple'] {
-    color: var(--color-purple);
+    color: var(--color-blue);
   }
 
   &[data-color='orange'] {
@@ -49,7 +49,7 @@
 
 .sectionTitle {
   margin: 80px 0 20px;
-  color: var(--color-purple);
+  color: var(--color-blue);
   font-weight: var(--font-semibold);
   font-size: 32px;
   text-align: center;
@@ -68,7 +68,7 @@
   display: block;
   margin: 25px auto 0;
   border-radius: 8px;
-  background: var(--color-purple);
+  background: var(--color-blue);
   padding: 17px 0;
   width: 320px;
   color: white;

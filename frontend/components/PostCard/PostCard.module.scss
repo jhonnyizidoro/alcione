@@ -1,7 +1,7 @@
 .card {
   display: block;
   position: relative;
-  border: 2px solid var(--color-purple);
+  border: 2px solid var(--color-blue);
   border-radius: 8px;
   padding-bottom: 65px;
   overflow: hidden;
@@ -36,11 +36,11 @@
 }
 
 .button {
-  border: 2px solid var(--color-purple);
+  border: 2px solid var(--color-blue);
   border-radius: 8px;
   background: var(--color-yellow);
   padding: 15px 0;
-  color: var(--color-purple);
+  color: var(--color-blue);
   font-weight: var(--font-semibold);
   font-size: 18px;
   text-align: center;

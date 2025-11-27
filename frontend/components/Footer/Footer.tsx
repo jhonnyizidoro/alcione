@@ -7,8 +7,8 @@ import { get } from '@/util/api'
 import Container from '@/components/Container/Container'
 import SocialLinks from '@/components/SocialLinks/SocialLinks'
 
+import Logo from '../Nav/images/logo.png'
 import styles from './Footer.module.scss'
-import Logo from './images/logo.png'
 
 const Footer: FC = async () => {
   const res = await get<Api.Footer>(StrapiRoute.Footer)
@@ -16,7 +16,12 @@ const Footer: FC = async () => {
   return (
     <footer className={styles.footerWrapper}>
       <Container className={styles.footer}>
-        <Image width={320} alt='Professor Alcione' src={Logo} />
+        <Image
+          width={320}
+          alt='Professor Alcione'
+          src={Logo}
+          className={styles.logo}
+        />
         <div className={styles.footerText}>{res?.text}</div>
         <SocialLinks fill='dark' background='yellow' />
       </Container>

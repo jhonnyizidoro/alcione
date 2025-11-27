@@ -17,13 +17,13 @@
   }
 
   &[data-background='purple'] {
-    background: var(--color-purple);
+    background: var(--color-blue);
   }
 }
 
 .icon {
   &[data-fill='lightPurple'] {
-    fill: var(--color-light-purple);
+    fill: var(--color-light-blue);
   }
 
   &[data-fill='white'] {

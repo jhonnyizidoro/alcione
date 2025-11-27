@@ -36,14 +36,14 @@
   display: flex;
   align-items: center;
   transition: 0.25s;
-  border: 1px solid var(--color-light-purple);
+  border: 1px solid var(--color-light-blue);
   border-radius: 99px;
   background: white;
   padding: 5px;
 
   @media (min-width: 1001px) {
     &:hover {
-      background: var(--color-light-purple);
+      background: var(--color-light-blue);
       color: white;
     }
   }
@@ -57,7 +57,7 @@
 }
 
 .icon {
-  fill: var(--color-light-purple);
+  fill: var(--color-light-blue);
 }
 
 .text {
