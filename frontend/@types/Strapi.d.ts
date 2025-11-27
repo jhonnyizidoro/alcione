@@ -17,17 +17,6 @@ declare namespace Strapi {
     }
   }
 
-  interface User {
-    id?: number
-    username?: string
-    email?: string
-    provider?: string
-    confirmed?: boolean
-    blocked?: boolean
-    createdAt?: Date
-    updatedAt?: Date
-  }
-
   interface MediaFormat {
     name?: string
     hash?: string
@@ -38,6 +27,7 @@ declare namespace Strapi {
     size?: number
     path?: string
     url?: string
+    sizeInBytes?: number
   }
 
   interface Media {
@@ -59,7 +49,9 @@ declare namespace Strapi {
     url?: string
     previewUrl?: string
     provider?: string
-    createdAt?: Date
-    updatedAt?: Date
+    createdAt?: string
+    updatedAt?: string
+    publishedAt?: string
+    provider_metadata?: unknown
   }
 }

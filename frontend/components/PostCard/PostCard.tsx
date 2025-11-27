@@ -11,14 +11,14 @@ import Date from '@/components/Date/Date'
 import styles from './PostCard.module.scss'
 
 const PostCard: FC<Api.Post> = ({
-  id,
   publishDate,
   title,
   body,
   image,
   category,
+  documentId,
 }) => (
-  <Link className={styles.card} href={postUrl(title, id)}>
+  <Link className={styles.card} href={postUrl(title, documentId)}>
     <CoverPhoto
       alt={title}
       label={category?.name}

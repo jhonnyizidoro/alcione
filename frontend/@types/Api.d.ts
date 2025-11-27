@@ -1,6 +1,14 @@
 declare namespace Api {
+  interface Category {
+    id?: number
+    documentId?: string
+    name?: null | string
+    description?: null | string
+  }
+
   interface About {
     id?: number
+    documentId?: string
     headerTitle?: null | string
     headerSubtitle?: null | string
     headerImage?: Strapi.Media
@@ -10,14 +18,9 @@ declare namespace Api {
     bottomImage?: Strapi.Media
   }
 
-  interface Category {
-    id?: number
-    name?: null | string
-    description?: null | string
-  }
-
   interface ElectionPlatform {
     id?: number
+    documentId?: string
     file?: null | Strapi.Media
     content?: null | string
     title?: null | string
@@ -25,16 +28,19 @@ declare namespace Api {
 
   interface Floater {
     id?: number
+    documentId?: string
     floater?: null | Strapi.Media
   }
 
   interface Footer {
     id?: number
+    documentId?: string
     text?: null | string
   }
 
   interface Home {
     id?: number
+    documentId?: string
     headerTitle?: string
     headerSubtitle?: null | string
     headerImage?: Strapi.Media
@@ -49,6 +55,7 @@ declare namespace Api {
 
   interface Post {
     id?: number
+    documentId?: string
     title?: null | string
     body?: null | string
     publishDate?: null | string
@@ -60,6 +67,7 @@ declare namespace Api {
 
   interface Tag {
     id?: number
+    documentId?: string
     name?: null | string
   }
 }

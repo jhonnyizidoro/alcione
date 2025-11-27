@@ -22,7 +22,7 @@ export const metadata = defaultMetadata(
 
 const getData = async () => {
   const res = await get<Api.About>(StrapiRoute.About)
-
+  console.log(JSON.stringify(res, null, 2))
   return {
     data: res,
   }

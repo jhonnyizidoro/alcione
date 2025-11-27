@@ -2,23 +2,34 @@ import { StrapiRoute } from '@/@types/Routes'
 
 export const get = async <T>(
   route: StrapiRoute,
-  opts?: { suffix?: string; params?: Record<string, string> },
+  opts?: {
+    params?: Record<string, string>
+    searchParams?: Record<string, string>
+  },
 ) => {
-  const params = new URLSearchParams({
-    ...(opts?.params || {}),
+  let endpoint = `${process.env.API_ENDPOINT}/${route}`
+
+  const searchParams = new URLSearchParams({
+    ...(opts?.searchParams || {}),
     pLevel: '3',
   })
 
-  const suffix = opts?.suffix ? `${opts.suffix}/` : ''
-  const endpoint = `${process.env.API_ENDPOINT}/${route}${suffix}?${params.toString()}`
-  const headers = { Authorization: `Bearer ${process.env.API_TOKEN}` }
+  Object.entries(opts?.params || {}).forEach(([key, value]) => {
+    endpoint = endpoint.replace(`{${key}}`, value)
+  })
+
+  endpoint += `?${searchParams.toString()}`
 
   const res = await fetch(endpoint, {
-    headers,
+    headers: { Authorization: `Bearer ${process.env.API_TOKEN}` },
     next: { revalidate: 60 * 60 },
   })
 
   const data = await res.json()
+
+  if (!data.data) {
+    console.error({ endpoint, data })
+  }
 
   return data.data as T | undefined
 }

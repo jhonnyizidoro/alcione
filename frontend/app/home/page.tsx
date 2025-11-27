@@ -80,7 +80,7 @@ const HomePage: FC = async () => {
           <PostContent content={data?.featuredPost?.body} />
           <PostGallery
             images={data?.featuredPost?.gallery}
-            title='Galeria de fotos do evento | Faça o download de sua foto'
+            title='Galeria de fotos | Faça o download de sua foto'
           />
           <PostTags
             tags={data?.featuredPost?.tags}

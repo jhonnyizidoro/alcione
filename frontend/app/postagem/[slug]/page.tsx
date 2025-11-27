@@ -26,7 +26,9 @@ type Props = {
 
 export const generateMetadata = async ({ params }: Props) => {
   const id = getId(params.slug)
-  const post = await get<Api.Post>(StrapiRoute.Post, { suffix: id })
+  const post = await get<Api.Post>(StrapiRoute.PostDocument, {
+    params: { documentId: id },
+  })
 
   return defaultMetadata(
     `Professor Alcione | ${post?.title}`.slice(0, 70),
@@ -36,7 +38,7 @@ export const generateMetadata = async ({ params }: Props) => {
 
 const getData = async (id: string) => {
   const res = await Promise.all([
-    get<Api.Post>(StrapiRoute.Post, { suffix: id }),
+    get<Api.Post>(StrapiRoute.PostDocument, { params: { documentId: id } }),
     get<Api.Post[]>(StrapiRoute.Post, {
       params: {
         sort: 'publishDate:desc',
@@ -86,7 +88,7 @@ const PostPage: FC<Props> = async ({ params }) => {
         <PostContent content={post?.body} />
         <PostGallery
           images={post?.gallery}
-          title='Galeria de fotos do evento | Faça o download de sua foto'
+          title='Galeria de fotos | Faça o download de sua foto'
         />
         <PostTags tags={post?.tags} category={post?.category} />
       </Container>

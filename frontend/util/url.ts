@@ -30,13 +30,13 @@ const slugify = (string: string | null | undefined) =>
       .replace(/\s+/g, '-'),
   )
 
-export const postUrl = (string: null | string | undefined, id = 0) =>
+export const postUrl = (string: null | string | undefined, id = '') =>
   `/postagem/${slugify(string)}-${id}`
 
 export const getId = (string: null | string | undefined) => {
   const id = string?.split('-').pop()
 
-  if (['number', 'string'].includes(typeof id) && !!id && !isNaN(Number(id))) {
+  if (typeof id === 'string' && id.length > 0) {
     return id
   }
 
